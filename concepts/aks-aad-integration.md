@@ -91,7 +91,7 @@ kubectl get deployment
 kubectl get pods -l run=snowflake
 ```
 
-## Add an authorized Azure AD user to the AKS cluster
+## Add an authenticated Azure AD user to the AKS cluster using Kubernetes RBAC
 The Azure AD user to be given access to the AKS cluster can be on the same Azure AD tenant or in a different Azure AD tenant. The Azure AD user list can found by running the below command
 ```bash
 # Get the object id for abhinab@email.com
