@@ -17,7 +17,7 @@ az ad app create --display-name "AKSAzureADServer" --identifier-uris "https://ak
 ```
 Update the group membership claims
 ```bash
-# Update the application group memebership claims
+# Update the application group membership claims
 az ad app update --id <Server Application ID> --set groupMembershipClaims=All
 ```
 Create a service principal for the server app & get the service principal secret
@@ -141,7 +141,7 @@ kubectl apply -f rbac-aad-podreader-abs.yaml
 
 A RoleBinding can also be created for all members of an Azure AD group. Azure AD groups are specified by using the group object ID. Refer [this](https://docs.microsoft.com/en-us/azure/aks/azure-ad-rbac?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 
-To access the cluster as an Azure AD user, pull the context in kubectk config for the non-admin user by using the az aks get-credentials command.
+To access the cluster as an Azure AD user, pull the context in kubectl config for the non-admin user by using the az aks get-credentials command.
 ```bash
 az aks get-credentials --resource-group rg-aks-test --name myAKSCluster
 ```
