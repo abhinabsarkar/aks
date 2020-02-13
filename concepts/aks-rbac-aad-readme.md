@@ -31,6 +31,8 @@ The above two roles are assigned to an Azure AD user by using the Azure RBAC Rol
 * **Azure Kubernetes Service Cluster Admin Role** - It has permission to download the cluster admin credentials. Only cluster admin should be assigned this role. Azure Contributor Role has this in-built role added to it, that's why all Azure AD users with **Contributor Role** are cluster admins.
 * **Azure Kubernetes Service Cluster User Role** - It has permission to download the cluster user credentials. Non-admin users can be assigned to this role. This role does not give any particular permissions on Kubernetes resources inside the cluster — it just allows a user to connect to the API server. Since the Azure **Reader Role** is a superset of this role, all Azure AD users with the Reader role will have this in-built role added. Kubernetes permissions using RBAC (Roles, RoleBindings & ClusterRoles for cases like installing Couchbase DB) will be assigned to these Azure AD users.
 
+> **On clusters that use Azure AD, users with the clusterUser role have an empty kubeconfig file that prompts a log in. Once logged in, users have access based on their Azure AD user or group settings. Users with the clusterAdmin role have admin access. Clusters that do not use Azure AD only use the *clusterAdmin* role. Refer this [link](https://docs.microsoft.com/bs-latn-ba/azure/aks/control-kubeconfig-access#available-cluster-roles-permissions) for details**
+
 When the below command is executed by cluster admin, it downloads the cluster admin credentials and saves them into the kubeconfig file.
 ```bash
 az aks get-credentials --admin
