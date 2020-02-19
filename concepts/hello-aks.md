@@ -16,7 +16,7 @@ kubectl get nodes --v=9
 ```
 
 ## Kubernetes dashboard
-Kubernetes dashboard can be used for management of cluster, view basic health status and metrics for applications, create and deploy services, and edit existing applications.
+Kubernetes dashboard can be used for management of cluster, view basic health status and metrics for applications, create and deploy services, and edit existing applications. Details on the kubernetes dashboard on AKS can be found [here](https://docs.microsoft.com/en-us/azure/aks/kubernetes-dashboard)
 ```bash
 # AKS cluster uses RBAC, a ClusterRoleBinding must be created before you can correctly access the dashboard. By default, the Kubernetes dashboard is deployed with minimal read access and displays RBAC access errors. This sample binding does not apply any additional authentication components and may lead to insecure use
 kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
