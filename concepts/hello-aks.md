@@ -25,9 +25,11 @@ az aks browse --resource-group rg-aks-demo --name aks-abs-demo
 ```
 ## Run a dockerized application on AKS cluster via kubernetes dashboard
 In the below example, a python application image is run on AKS service. The python application is exposed on port 5000 & available publicly on docker hub.
+
 ![Alt Text](/images/k8s-dashboard.jpg)
 
 The application is exposed as an External service on AKS cluster and can be browsed by using the External IP created by Azure.
+
 ![Alt Text](/images/hello-python.jpg)
 
 ## Run a dockerize application on AKS cluster via kuberbetes manifest
