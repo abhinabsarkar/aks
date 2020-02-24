@@ -1,0 +1,52 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hellopython
+spec:
+  template:
+    metadata:
+      labels:
+        app: hellopython
+    spec:
+      containers:
+      - image: abhinabsarkar/abs-hello-py
+        name: hellopython
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        tty: true
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hellopython
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: hellopython
+  type: ClusterIP
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hellopython
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  rules:
+  - host: hellopython.cf86a933f2c04e97b64d.eastus.aksapp.io
+    http:
+      paths:
+      - backend:
+          serviceName: hellopython
+          servicePort: 80
+        path: /

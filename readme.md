@@ -6,3 +6,8 @@ Azure Kubernetes Service (AKS) manages hosted Kubernetes environment. As a hoste
 * [Role-based access control using Azure AD](/concepts/aks-rbac-aad-readme.md)
     * [Implementing Azure AD integration with AKS](/concepts/aks-aad-integration.md)
 * [Hello AKS cluster](/concepts/hello-aks.md)
+* Kubernetes Concepts
+    * [Ingress](/concepts/ingress-readme.md)
+        * [Enable an Ingress Controller for AKS - Development Only](/concepts/http-application-routing-readme.md)
+        * [Enable an HTTPS NGINX Ingress Controller - Recommended for Production](/concepts/nginx-ingress-controller-readme.md)
+    * [Service](/concepts/service-readme.md)
