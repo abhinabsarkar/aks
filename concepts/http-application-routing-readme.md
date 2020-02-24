@@ -39,7 +39,7 @@ This deploys the Azure DNS zone as well. Retrieve the DNS zone name to deploy ap
 # Retrieve the DNS zone name
 az aks show --resource-group rg-aks-demo --name aks-abs-demo --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
 ```
-To see an application on action, get the hostname & replace the current host value 'hellopython.<hostname>' in the file [abs-demo-http-application-routing.yaml](/src/abs-demo-http-application-routing.yaml) with the hostname retrieved using the previous command.
+To see an application on action, get the hostname & replace the current host value hellopython.'*hostname*' in the file [abs-demo-http-application-routing.yaml](/src/abs-demo-http-application-routing.yaml) with the hostname retrieved using the previous command.
 
 Deploy the file and apply the kubernetes objects as shown below
 ```bash
