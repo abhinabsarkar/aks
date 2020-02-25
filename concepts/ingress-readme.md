@@ -10,6 +10,12 @@ An **Ingress controller** is responsible for fulfilling the Ingress, usually wit
 
 > For additional ingress controllers, refer this [link](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/#additional-controllers)
 
+In case of AKS, when a LoadBalancer type Service is created, an underlying Azure load balancer resource is created. The load balancer is configured to distribute traffic to the pods in your Service on a given port. The LoadBalancer only works at layer 4 - the Service is unaware of the actual applications, and can't make any additional routing considerations.
+
+Ingress controllers work at layer 7, and can use more intelligent rules to distribute application traffic. A common use of an Ingress controller is to route HTTP traffic to different applications based on the inbound URL.
+
+![Alt Text](/images/aks-ingress.jpg)
+
 An Ingress does not expose arbitrary ports or protocols. Exposing services other than HTTP and HTTPS to the internet typically uses a service of type **Service.Type=NodePort** or **Service.Type=LoadBalancer**.
 
 A sample Ingress kubernetes object which uses the http-application-routing (specific to AKS *see annotation* )
