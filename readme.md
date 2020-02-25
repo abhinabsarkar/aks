@@ -9,5 +9,5 @@ Azure Kubernetes Service (AKS) manages hosted Kubernetes environment. As a hoste
 * Kubernetes Concepts
     * [Ingress](/concepts/ingress-readme.md)
         * [Enable an Ingress Controller for AKS - Development Only](/concepts/http-application-routing-readme.md)
-        * [Enable an HTTPS NGINX Ingress Controller - Recommended for Production](/concepts/nginx-ingress-controller-readme.md)
+        * [Enable an HTTPS NGINX Ingress Controller - Recommended for Production](https://docs.microsoft.com/en-us/azure/aks/ingress-tls)
     * [Service](/concepts/service-readme.md)
