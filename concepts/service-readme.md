@@ -45,4 +45,8 @@ In Kubernetes, the Service component is used to provide a static URL through whi
 
 ![Alt Text](/images/aks-loadbalancer.jpg)
 
+Comparing the three Service types side-by-side together
+
+![Alt Text](/images/service-type.jpg)
+
 **ExternalName** - Creates a specific DNS entry for easier application access.
