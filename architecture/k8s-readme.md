@@ -28,6 +28,7 @@ Before getting into more details, let's understand how Kubernetes works from an 
     ![Alt text](/images/k8s-pod-design.jpg)
 
     The Pods don’t serve traffic till they are exposed as a Kubernetes Service – which acts as a load balancer for the replicated pods.
+    
     ![Alt text](/images/k8s-service.jpg)
 
 * Kubelet - primary “node agent” that runs on each node. They ensure the containers described in the PodSpecs (YAML file describing the Pod) are running and healthy.
