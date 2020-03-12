@@ -2,6 +2,8 @@
 
 Azure Kubernetes Service (AKS) manages hosted Kubernetes environment. As a hosted Kubernetes service, the Kubernetes masters are managed by Azure. Customers only manage, maintain and pay for the agent nodes. Azure handles tasks like health monitoring and maintenance for the customers.
 
+* [Kubernetes Architecture & Concepts](/architecture/k8s-readme.md)
+    * [Install Kubernetes for Development](/concepts/k8s-dev-install-readme.md)
 * [AKS Architecture & Concepts](/architecture/aks-readme.md)
 * [Role-based access control using Azure AD](/concepts/aks-rbac-aad-readme.md)
     * [Implementing Azure AD integration with AKS](/concepts/aks-aad-integration.md)
