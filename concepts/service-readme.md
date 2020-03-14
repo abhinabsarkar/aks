@@ -35,9 +35,11 @@ The following diagram show the conceptual relation between services and pods. Th
 In Kubernetes, the Service component is used to provide a static URL through which a client can consume a service. The Service component is Kubernetes's way of handling more than one connectivity scenario.
 
 **ClusterIP** - Exposes the Service on a cluster-internal IP. Choosing this value makes the Service only reachable from within the cluster. This is the default ServiceType
+
 ![Alt Text](/images/aks-clusterip.jpg)
 
 **NodePort** - Exposes the Service on each Node’s IP at a static port (the NodePort). A ClusterIP Service, to which the NodePort Service routes, is automatically created. You’ll be able to contact the NodePort Service, from outside the cluster, by requesting *NodeIP:NodePort*.
+
 ![Alt Text](/images/aks-nodeport.jpg)
 > The diagram shows AKS node but the concept is native to kubernetes
 
