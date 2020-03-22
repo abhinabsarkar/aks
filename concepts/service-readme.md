@@ -34,16 +34,22 @@ The following diagram show the conceptual relation between services and pods. Th
 ## Service Types (Publishing Services)
 In Kubernetes, the Service component is used to provide a static URL through which a client can consume a service. The Service component is Kubernetes's way of handling more than one connectivity scenario.
 
-**ClusterIP** - Exposes the Service on a cluster-internal IP. Choosing this value makes the Service only reachable from within the cluster. This is the default ServiceType
+**ClusterIP** - Exposes the Service on a cluster-internal IP. Choosing this value makes the Service only reachable from within the cluster. This is the default ServiceType. It enables cluster resources to reach one another via a known address while maintaining the security boundaries of the cluster itself.
+
+For example, a database used by a backend application does not need to be visible outside of the cluster, so using a service of type ClusterIP is appropriate. The backend application
+would expose an API for interacting with records in the database, and a frontend application or remote clients would consume that API.
 
 ![Alt Text](/images/aks-clusterip.jpg)
 
-**NodePort** - Exposes the Service on each Node’s IP at a static port (the NodePort). A ClusterIP Service, to which the NodePort Service routes, is automatically created. You’ll be able to contact the NodePort Service, from outside the cluster, by requesting *NodeIP:NodePort*.
+**NodePort** - Exposes the Service on each Node’s IP at a static port (the NodePort). The range of available ports is a cluster-level configuration item, and the Service can either choose one of the ports at random
+or have one designated in its configuration. A ClusterIP Service, to which the NodePort Service routes, is automatically created. You’ll be able to contact the NodePort Service, from outside the cluster, by requesting *NodeIP:NodePort*.
+
+External load balancers frequently use NodePort services. They receive traffic for a specific site or address and forward it to the cluster on that specific port.
 
 ![Alt Text](/images/aks-nodeport.jpg)
 > The diagram shows AKS node but the concept is native to kubernetes
 
-**LoadBalancer** - Exposes the Service externally using a cloud provider’s load balancer. NodePort and ClusterIP Services, to which the external load balancer routes, are automatically created.
+**LoadBalancer** - Exposes the Service externally using a cloud provider’s load balancer. NodePort and ClusterIP Services, to which the external load balancer routes, are automatically created. It proxies the request to the corresponding Pods via NodePort and ClusterIP Services.
 
 ![Alt Text](/images/aks-loadbalancer.jpg)
 
