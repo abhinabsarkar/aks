@@ -59,6 +59,5 @@ To avoid charges on the Azure account, delete the resources by running the scrip
 ```
 
 ### References
-[Azure AKS private cluster](https://docs.microsoft.com/en-us/azure/aks/private-clusters)  
 [Azure Private Link](https://docs.microsoft.com/en-us/azure/private-link/private-link-overview)  
 [Private Azure Kubernetes Service cluster](https://docs.microsoft.com/en-us/azure/aks/private-clusters)
