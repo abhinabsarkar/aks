@@ -22,6 +22,8 @@ Kubernetes dashboard can be used for management of cluster, view basic health st
 kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 # Start kubernetes dashboard - This command creates a proxy between your development system and the Kubernetes API, and opens a web browser to the Kubernetes dashboard.
 az aks browse --resource-group rg-aks-demo --name aks-abs-demo
+# Browse the AKS cluster, by opening the below url in browser
+'http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/http:kubernetes-dashboard:/proxy/#!/overview?namespace=default'
 ```
 ## Run a dockerized application on AKS cluster via kubernetes dashboard
 In the below example, a python application image is run on AKS service. The python application is exposed on port 5000 & available publicly on docker hub.
