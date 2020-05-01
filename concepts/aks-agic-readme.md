@@ -1,4 +1,4 @@
-# AKS with Application Gateway
+# AKS with Application Gateway Ingress Controller
 
 Create an AKS cluster with Application Gateway Ingress controller & AAD pod identity (Managed Identity)
 
