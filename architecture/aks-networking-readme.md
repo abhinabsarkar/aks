@@ -8,6 +8,9 @@ In AKS, a cluster can be deployed using one of the two network models:
 With kubenet, only the *nodes* receive an IP address in the virtual network *subnet*. Pods can't communicate directly with each other. Instead, User Defined Routing (UDR) and IP forwarding is used for connectivity between pods across nod.  
 ![Alt text](/images/kubenet.jpg)
 
+The ingress traffic flows using a cloud provider’s load balancer. NodePort and ClusterIP Services, to which the external load balancer routes, are automatically created. It proxies the request to the corresponding Pods via NodePort and ClusterIP Services.  
+![Alt text](/images/kubenet-traffic.jpg)
+
 ## Azure CNI (advanced) networking
 With Azure CNI, every *pod* gets an IP address from the virtual network *subnet* and can be accessed directly. A pool of IP addresses for the Pods is configured as secondary addresses on a virtual machine's network interface. Azure CNI sets up the basic Network connectivity for Pods and manages the utilization of the IP addresses in the pool. When a Pod comes up in the virtual machine, Azure CNI assigns an available IP address from the pool and connects the Pod to a software bridge in the virtual machine. When the Pod terminates, the IP address is added back to the pool.
 
