@@ -250,12 +250,14 @@ Deploy the two sample applications
 kubectl create -f aspnetapp.yaml
 # get the running pods and services
 kubectl get pods,svc -o wide
-NAME                                READY   STATUS    RESTARTS   AGE    IP          NODE                                NOMINATED NODE   READINESS GATES
-pod/aspnetapp                       1/1     Running   0          2m7s   10.0.0.25   aks-agentpool-33245669-vmss000000   <none>           <none>
-pod/ingress-azure-db7567987-qjg99   1/1     Running   0          25m    10.0.0.19   aks-agentpool-33245669-vmss000000   <none>           <none>
-pod/mic-f7bdd4f9b-9wbwk             1/1     Running   0          26m    10.0.0.9    aks-agentpool-33245669-vmss000000   <none>           <none>
-pod/mic-f7bdd4f9b-mgckx             1/1     Running   0          26m    10.0.0.28   aks-agentpool-33245669-vmss000000   <none>           <none>
-pod/nmi-tqjbc                       1/1     Running   0          26m    10.0.0.4    aks-agentpool-33245669-vmss000000   <none>           <none>
+NAME                  READY   STATUS    RESTARTS   AGE     IP          NODE                        
+pod/aspnetapp-69fd4   1/1     Running   0          2m43s   10.0.0.10   aks-agentpool-33245669-vmss0
+pod/aspnetapp-69fd4   1/1     Running   0          2m43s   10.0.0.29   aks-agentpool-33245669-vmss0
+pod/aspnetapp-69fd4   1/1     Running   0          2m43s   10.0.0.17   aks-agentpool-33245669-vmss0
+pod/ingress-azure-d   1/1     Running   0          39m     10.0.0.19   aks-agentpool-33245669-vmss0
+pod/mic-f7bdd4f9b-9   1/1     Running   0          40m     10.0.0.9    aks-agentpool-33245669-vmss0
+pod/mic-f7bdd4f9b-m   1/1     Running   0          40m     10.0.0.28   aks-agentpool-33245669-vmss0
+pod/nmi-tqjbc         1/1     Running   0          40m     10.0.0.4    aks-agentpool-33245669-vmss0
 
 NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE    SELECTOR
 service/aspnetapp    ClusterIP   10.2.73.29   <none>        80/TCP    2m7s   app=aspnetapp
