@@ -231,6 +231,8 @@ helm install ingress-azure -f helm-config.yaml application-gateway-kubernetes-in
 
 ## Run sample application
 Deploy the two sample applications
+1. aspnetapp - The details for the app can be found [here](https://github.com/dotnet/dotnet-docker/tree/master/samples/aspnetapp)
+2. abs-hello-csharp-app - Docker hub image & application code can be found [here](https://github.com/abhinabsarkar/hellocsharp)
 ```bash
 kubectl create -f aspnetapp.yaml
 kubectl create -f abs-hello-csharp-app.yaml
