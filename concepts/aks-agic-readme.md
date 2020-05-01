@@ -236,8 +236,8 @@ kubectl create -f aspnetapp.yaml
 kubectl create -f abs-hello-csharp-app.yaml
 ```
 
-The first application can be browsed by using the public ip address of the AKS cluster. Refer the application code [here](https://github.com/abhinabsarkar/aks/tree/master/src/aks-agic/aspnetapp.yaml)  
+The first application can be browsed by using the public ip address of the AKS cluster. Refer the application deployment yaml [here](https://github.com/abhinabsarkar/aks/tree/master/src/aks-agic/aspnetapp.yaml)  
 ![Alt text](/images/aspnetapp.jpg)
 
-The second application shows the path based routing done at the ingress controller. Refer the application code [here](https://github.com/abhinabsarkar/aks/tree/master/src/aks-agic/abs-hello-csharp-app.yaml)  
+The second application shows the path based routing done at the ingress controller. Refer the application deployment yaml [here](https://github.com/abhinabsarkar/aks/tree/master/src/aks-agic/abs-hello-csharp-app.yaml)  
 ![Alt text](/images/abs-charp-hello.jpg)
