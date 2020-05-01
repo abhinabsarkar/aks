@@ -246,9 +246,24 @@ helm install ingress-azure -f helm-config.yaml application-gateway-kubernetes-in
 ## Run sample application
 Deploy the two sample applications
 1. aspnetapp - The details for the app can be found [here](https://github.com/dotnet/dotnet-docker/tree/master/samples/aspnetapp)
-2. abs-hello-csharp-app - Docker hub image & application code can be found [here](https://github.com/abhinabsarkar/hellocsharp)
 ```bash
 kubectl create -f aspnetapp.yaml
+# get the running pods and services
+kubectl get pods,svc -o wide
+NAME                                READY   STATUS    RESTARTS   AGE    IP          NODE                                NOMINATED NODE   READINESS GATES
+pod/aspnetapp                       1/1     Running   0          2m7s   10.0.0.25   aks-agentpool-33245669-vmss000000   <none>           <none>
+pod/ingress-azure-db7567987-qjg99   1/1     Running   0          25m    10.0.0.19   aks-agentpool-33245669-vmss000000   <none>           <none>
+pod/mic-f7bdd4f9b-9wbwk             1/1     Running   0          26m    10.0.0.9    aks-agentpool-33245669-vmss000000   <none>           <none>
+pod/mic-f7bdd4f9b-mgckx             1/1     Running   0          26m    10.0.0.28   aks-agentpool-33245669-vmss000000   <none>           <none>
+pod/nmi-tqjbc                       1/1     Running   0          26m    10.0.0.4    aks-agentpool-33245669-vmss000000   <none>           <none>
+
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE    SELECTOR
+service/aspnetapp    ClusterIP   10.2.73.29   <none>        80/TCP    2m7s   app=aspnetapp
+service/kubernetes   ClusterIP   10.2.0.1     <none>        443/TCP   53m    <none>
+```
+
+2. abs-hello-csharp-app - Docker hub image & application code can be found [here](https://github.com/abhinabsarkar/hellocsharp)
+```bash
 kubectl create -f abs-hello-csharp-app.yaml
 ```
 
