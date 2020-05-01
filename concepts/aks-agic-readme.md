@@ -208,7 +208,7 @@ nmi-xhmmg                       1/1     Running   0          11m
 ```
 
 ## Debugging steps
-If the ingress pod fails t 
+If the ingress pod fails to start, try the following steps to get the logs & debug
 * Bring up kubernetes dashboard
 ```bash
 # To access an RBAC enabled kubernetes dahsnoard
@@ -217,6 +217,20 @@ kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-adm
 az aks browse --resource-group $rgName --name $aksClusterName
 # Browse the dashboard
 'http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/http:kubernetes-dashboard:/proxy/#!/overview?namespace=default'
+```
+
+If dashboard can't be enabled, use the cli commands to troubleshoot
+```bash
+# Check status
+kubectl get svc,pods --all-namespaces
+kubectl get events
+# Get into the container
+docker exec -it <container name> <command>
+docker exec -it <container name> /bin/bash
+# Kubernetes pod events
+kubectl describe pod <pod-which-is-crashing>
+# Kubernetes logs 
+kubectl logs <pod-which-is-crashing>
 ```
 
 * To switch to a different version of Application Gateway Ingress Controller
