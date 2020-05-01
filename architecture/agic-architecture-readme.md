@@ -23,6 +23,8 @@ AGIC runs in its own pod on the customer’s AKS. It monitors a subset of Kubern
 
 ![Alt text](/images/aks-agic.jpg)
 
+To see AGIC in action, follow this [link](/concepts/aks-agic-readme.md)
+
 ## AAD Pod Identities with AGIC in AKS
 
 Refer [AAD Pod Identity](pod-mi-readme.md)
