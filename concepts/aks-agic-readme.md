@@ -31,7 +31,7 @@ az role assignment list --scope $rgId -o table
 * Create an AKS cluster with no load balancer, under the context of service principal created above. 
 > *Since the az cli doesn't have any means to create the AKS cluster without load balancer, using the ARM template.*
 
-The parameters.json & template.json files can be found [here](src/aks-agic)
+The parameters.json & template.json files can be found [here](https://github.com/abhinabsarkar/aks/tree/master/src/aks-agic)
 ```bash
 rgName="rg-aksAgicPmi"
 deploymentName="dep-aksAgicPmi"
@@ -236,8 +236,8 @@ kubectl create -f aspnetapp.yaml
 kubectl create -f abs-hello-csharp-app.yaml
 ```
 
-The first application can be browsed by using the public ip address of the AKS cluster. Refer the application code [here](src\aks-agic\aspnetapp.yaml)  
+The first application can be browsed by using the public ip address of the AKS cluster. Refer the application code [here](https://github.com/abhinabsarkar/aks/tree/master/src/aks-agic/aspnetapp.yaml)  
 ![Alt text](/images/aspnetapp.jpg)
 
-The second application shows the path based routing done at the ingress controller. Refer the application code [here](src\aks-agic\abs-hello-csharp-app.yaml)  
+The second application shows the path based routing done at the ingress controller. Refer the application code [here](https://github.com/abhinabsarkar/aks/tree/master/src/aks-agic/abs-hello-csharp-app.yaml)  
 ![Alt text](/images/abs-charp-hello.jpg)
