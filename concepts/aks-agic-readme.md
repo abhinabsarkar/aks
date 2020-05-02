@@ -60,6 +60,7 @@ Resources created in the node resource group
 ![Alt text](/images/node-rg-aksAgicPmi.jpg)
 
 * Create Application Gateway in the resource group
+An application gateway is a dedicated deployment in your virtual network. Within your virtual network, a dedicated subnet is required for the application gateway. You can have multiple instances of a given application gateway deployment in a subnet. You can also deploy other application gateways in the subnet. But you can't deploy any other resource in the application gateway subnet.
 ```bash
 # Get VNet name for creating application gateway subnet
 vnetName=$(jq -r ".vnetName.value" deployment-outputs.json)
