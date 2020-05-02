@@ -274,3 +274,10 @@ The first application can be browsed by using the public ip address of the AKS c
 
 The second application shows the path based routing done at the ingress controller. Refer the application deployment yaml [here](https://github.com/abhinabsarkar/aks/tree/master/src/aks-agic/abs-hello-csharp-app.yaml)  
 ![Alt text](/images/abs-charp-hello.jpg)
+
+## Clean up resources
+Delete the resource group & the service principal
+```bash
+az group delete -n $rgName --yes --no-wait
+az ad sp delete --id $spPrincipalId
+```
