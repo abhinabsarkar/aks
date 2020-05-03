@@ -387,10 +387,6 @@
             "type": "string",
             "value": "[variables('applicationGatewayPublicIpName')]"
         },
-        "applicationGatewayName": {
-            "type": "string",
-            "value": "[variables('applicationGatewayName')]"
-        },
         "aksApiServerAddress": {
             "type": "string",
             "value": "[reference(variables('aksClusterId'), '2018-03-31').fqdn]"
