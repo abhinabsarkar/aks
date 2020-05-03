@@ -245,9 +245,9 @@ helm install ingress-azure -f helm-config.yaml application-gateway-kubernetes-in
 helm install ingress-azure -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure --version 1.0.1-rc1
 ```
 
-## Run sample application
+## Run sample applications
 Deploy the two sample applications
-1. aspnetapp - The details for the app can be found [here](https://github.com/dotnet/dotnet-docker/tree/master/samples/aspnetapp)
+1. aspnetapp - The details for the app can be found [here](https://github.com/dotnet/dotnet-docker/tree/master/samples/aspnetapp). Refer the application deployment yaml [here](https://github.com/abhinabsarkar/aks/tree/master/src/aks-agic/aspnetapp.yaml)  
 ```bash
 kubectl create -f aspnetapp.yaml
 # get the running pods and services
@@ -266,15 +266,20 @@ service/aspnetapp    ClusterIP   10.2.73.29   <none>        80/TCP    2m7s   app
 service/kubernetes   ClusterIP   10.2.0.1     <none>        443/TCP   53m    <none>
 ```
 
-2. abs-hello-csharp-app - Docker hub image & application code can be found [here](https://github.com/abhinabsarkar/hellocsharp)
+The first application can be browsed by using the public ip address of the AKS cluster. 
+```bash
+az network public-ip list -g $rgName -o table
+```
+
+![Alt text](/images/aspnetapp.jpg)
+
+2. abs-hello-csharp-app - Docker hub image & application code can be found [here](https://github.com/abhinabsarkar/hellocsharp). The second application shows the path based routing done at the ingress controller. Refer the application deployment yaml [here](https://github.com/abhinabsarkar/aks/tree/master/src/aks-agic/abs-hello-csharp-app.yaml)  
 ```bash
 kubectl create -f abs-hello-csharp-app.yaml
 ```
 
-The first application can be browsed by using the public ip address of the AKS cluster. Refer the application deployment yaml [here](https://github.com/abhinabsarkar/aks/tree/master/src/aks-agic/aspnetapp.yaml)  
-![Alt text](/images/aspnetapp.jpg)
+The application is available at the same public IP address but exposed on a different route. It can be accessed by going to http://<public_ip>/abs
 
-The second application shows the path based routing done at the ingress controller. Refer the application deployment yaml [here](https://github.com/abhinabsarkar/aks/tree/master/src/aks-agic/abs-hello-csharp-app.yaml)  
 ![Alt text](/images/abs-charp-hello.jpg)
 
 ## Clean up resources
