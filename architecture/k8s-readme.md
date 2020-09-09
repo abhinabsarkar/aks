@@ -31,7 +31,7 @@ Before getting into more details, let's understand how Kubernetes works from an 
     
     ![Alt text](/images/k8s-service.jpg)
 
-* Kubelet - primary “node agent” that runs on each node. They ensure the containers described in the PodSpecs (YAML file describing the Pod) are running and healthy.
+* Kubelet - primary “node agent” that runs on each node. They ensure the containers described in the PodSpecs (YAML file describing the Pod) are running and healthy. Within a Kubernetes cluster, the kubelet functions as a local agent that watches for pod specs via the Kubernetes API server. The kubelet is also responsible for registering a node with a Kubernetes cluster, sending events and pod status, and reporting resource utilization.
 * Kube Proxy - runs on each node. It acts as a network proxy connecting locally running pods to outside world. It also functions as a load balancer (i.e. Services which provides a VIP and acts as load balancer) for groups of pods sharing the same label (i.e. if a node has multiple pods balances the traffic between those pods). Just to understand kube-proxy, Here’s how Kubernetes services work! A service is a collection of pods, which each have their own IP address (like 10.1.0.3, 10.2.3.5, 10.3.5.6). 
     1. Every Kubernetes service gets an IP address (like 10.23.1.2). 
     2. kube-dns resolves Kubernetes service DNS names to IP addresses (so my-svc.my-namespace.svc.cluster.local might map to 10.23.1.2). 
