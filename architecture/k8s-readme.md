@@ -14,7 +14,7 @@ Before getting into more details, let's understand how Kubernetes works from an 
 ## Let's get a bit closer - Components of Master - Control Plane
 
 [Master](https://kubernetes.io/docs/concepts/overview/components/#master-components)
-* API server – Whenever a request/command is sent via client (Kubectl), it goes through series of steps i.e Authentication, Authorization and Admission control.
+* API server – It exposes the k8s API. Whenever a request/command is sent via client (Kubectl), it goes through series of steps i.e Authentication, Authorization and Admission control.
 * ETCD – It is reliable clustered key value store (DB). etcd stores the persistent master state while other components watch etcd for changes to bring themselves into the desired state.
 * Replication Controller – It ensures that a specified number of replicas of a pod are running at all times. If you deploy a pod and set replica count to three, the replication controller ensures that three replicas will be running at any given point in time. If one of the replicas die, the replication controller will schedule a new replica on a different node or the same node.
 * Scheduler - responsible for determining placement of new pods onto nodes within the cluster. It reads data from the pod and finds a node that is a good fit based on configured policies. It does not modify the pod and just creates a binding for the pod that ties the pod to the particular node.
