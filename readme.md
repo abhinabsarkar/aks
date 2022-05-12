@@ -13,7 +13,7 @@ Azure Kubernetes Service (AKS) manages hosted Kubernetes environment. As a hoste
     * Deprecated ~~[Implementing Azure AD integration with AKS](/concepts/aks-aad-integration.md)~~
     * [AKS integration with Azure AD - Microsoft](https://docs.microsoft.com/en-us/azure/aks/azure-ad-v2)
         * [AKS RBAC best practices](/concepts/AKS-RBAC-BestPractices.pdf)
-        * [AKS with AAD & RBAC in action](/concepts/aks-aad.md)
+        * [AKS with AAD & RBAC in action](/concepts/aks-aad-readme.md)
     * [Managed Identity & Pod Identity](/architecture/pod-mi-readme.md)
 * [Hello AKS cluster](/concepts/hello-aks.md)
 * AKS Kubernetes Concepts
