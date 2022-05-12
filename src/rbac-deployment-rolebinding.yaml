@@ -1,0 +1,13 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: deployment-rolebinding
+  namespace: dev
+subjects:
+- kind: Group
+  name: 08781df5-c953-40fa-af7b-517067631d95
+  apiGroup: ""
+roleRef:
+  kind: Role
+  name: deployment-role
+  apiGroup: ""

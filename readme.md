@@ -11,7 +11,9 @@ Azure Kubernetes Service (AKS) manages hosted Kubernetes environment. As a hoste
     * [Azure Load Balancing](https://github.com/abhinabsarkar/azure-loadbalancing)
 * [Role-based access control using Azure AD](/concepts/aks-rbac-aad-readme.md)
     * Deprecated ~~[Implementing Azure AD integration with AKS](/concepts/aks-aad-integration.md)~~
-    * [AKS integration with Azure AD v2](https://docs.microsoft.com/en-us/azure/aks/azure-ad-v2)
+    * [AKS integration with Azure AD - Microsoft](https://docs.microsoft.com/en-us/azure/aks/azure-ad-v2)
+        * [AKS RBAC best practices](/concepts/AKS-RBAC-BestPractices.pdf)
+        * [AKS with AAD & RBAC in action](/concepts/aks-aad.md)
     * [Managed Identity & Pod Identity](/architecture/pod-mi-readme.md)
 * [Hello AKS cluster](/concepts/hello-aks.md)
 * AKS Kubernetes Concepts
@@ -23,3 +25,4 @@ Azure Kubernetes Service (AKS) manages hosted Kubernetes environment. As a hoste
             * [Secure AKS service over HTTPS - Application Gateway to AKS service](https://docs.microsoft.com/en-us/azure/application-gateway/ingress-controller-expose-service-over-http-https#expose-services-over-https)
             * [TLS termination and end to end TLS with Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/ssl-overview)
 * [AKS Private cluster](/concepts/aks-private-readme.md)
+* [FAQs](/concepts/faq.md)
