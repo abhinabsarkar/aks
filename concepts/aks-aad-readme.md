@@ -196,5 +196,21 @@ kubectl create deployment nginx --image=nginx -n qa
 error: failed to create deployment: deployments.apps is forbidden:
 ```
 
+## Configure RBAC in K8S cluster – AKS + Istio
+If you have Istio Service Mesh on your cluster, then you my have to create another custom role for deployment/management of Istio. o	Adding Istio related RBAC in the same custom role which would be used for AKS may not be ideal. Will all applications require all the rich features of Istio? A good approach would be to create a custom deployment role for k8s APIs & create another set of RBAC roles for Istio. Assign the k8s & Istio custom roles based on the permissions required for the respective deployments. 
 
-
+```yaml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: dev
+  name: istio-edit-role
+rules:
+- apiGroups: ["config.istio.io", "networking.istio.io", "authentication.istio.io"]
+  resources: ["*"]
+  verbs: ["*"]
+```
+Refer the below links
+* https://docs.bitnami.com/tutorials/configure-rbac-in-your-kubernetes-cluster/#step-3-create-the-role-for-managing-deployments 
+* https://stackoverflow.com/questions/54700745/what-roles-should-be-created-used-for-deploying-a-service-that-uses-istio 
+* https://github.com/IBM/istio101/blob/master/presentation/scripts/install/kubernetes/istio-auth.yaml 
