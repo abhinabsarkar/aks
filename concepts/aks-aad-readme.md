@@ -218,3 +218,8 @@ Refer the below links
 * https://docs.bitnami.com/tutorials/configure-rbac-in-your-kubernetes-cluster/#step-3-create-the-role-for-managing-deployments 
 * https://stackoverflow.com/questions/54700745/what-roles-should-be-created-used-for-deploying-a-service-that-uses-istio 
 * https://github.com/IBM/istio101/blob/master/presentation/scripts/install/kubernetes/istio-auth.yaml 
+
+## References
+* https://docs.microsoft.com/en-us/azure/aks/azure-ad-rbac
+* https://github.com/stacksimplify/azure-aks-kubernetes-masterclass/tree/master/21-Azure-AKS-Authentication-and-RBAC
+* https://trstringer.com/aks-azure-rbac-security/
