@@ -211,7 +211,10 @@ rules:
   verbs: ["*"]
 ```
 Refer the below links
-* https://rancher.com/docs/rancher/v2.5/en/istio/rbac/ - RBAC based on CRD permissions
+* https://rancher.com/docs/rancher/v2.5/en/istio/rbac/ - RBAC based on CRD permissions. For config.istio.io, Rancher uses Get, List & Watch (GLW), whereas for networking.istio.io & security.istio.io, use all i.e. '*'.
+
+  ![Alt txt](/images/istio-rbac-rancher.png)
+
 * https://docs.bitnami.com/tutorials/configure-rbac-in-your-kubernetes-cluster/#step-3-create-the-role-for-managing-deployments 
 * https://stackoverflow.com/questions/54700745/what-roles-should-be-created-used-for-deploying-a-service-that-uses-istio 
 * https://github.com/IBM/istio101/blob/master/presentation/scripts/install/kubernetes/istio-auth.yaml 
