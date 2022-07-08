@@ -26,4 +26,5 @@ Azure Kubernetes Service (AKS) manages hosted Kubernetes environment. As a hoste
             * [TLS termination and end to end TLS with Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/ssl-overview)
 * [AKS Private cluster](/concepts/aks-private-readme.md)
 * [AKS Best Practices from Microsoft](/concepts/AKS-Best_practices.pdf)
+* [AKS cluster hardening using policies](/concepts/aks-policies-readme.md)
 * [FAQs](/concepts/faq.md)
