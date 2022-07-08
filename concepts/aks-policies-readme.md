@@ -4,7 +4,7 @@ Azure Policy extends [Gatekeeper](https://github.com/open-policy-agent/gatekeepe
 * Deploys policy definitions into the cluster as [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) and [constraint](https://github.com/open-policy-agent/gatekeeper#constraints) custom resources.
 * Reports auditing and compliance details back to Azure Policy service.
 
-## Policy for AKS
+## Azure Policy for AKS
 There is built-in policy for disallowing automounting service token: [Kubernetes clusters should disable automounting API credentials](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F423dd1ba-798e-40e4-9c4d-b6902674b423)
 
 The complete list of Azure Policy built-in definitions for Azure Kubernetes Service can be found here: https://docs.microsoft.com/en-us/azure/aks/policy-reference
