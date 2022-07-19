@@ -27,4 +27,5 @@ Azure Kubernetes Service (AKS) manages hosted Kubernetes environment. As a hoste
 * [AKS Private cluster](/concepts/aks-private-readme.md)
 * [AKS Best Practices from Microsoft](/concepts/AKS-Best_practices.pdf)
 * [AKS cluster hardening using policies](/concepts/aks-policies-readme.md)
+* [Logging & Monitoring](/concepts/log-monitor-readme.md)
 * [FAQs](/concepts/faq.md)
