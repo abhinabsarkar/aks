@@ -12,9 +12,25 @@ Container insights is a feature in Azure Monitor that monitors the health and pe
 
 > Container insights complements and completes E2E monitoring of AKS including log collection which Prometheus as stand-alone tool doesn’t provide. Many customers use Prometheus integration and Azure Monitor together for E2E monitoring.
 
+## Monitoring Control Plane logs
+AKS is a managed Kubernetes service such that it doesn't give access to the kube-apiserver, controller-manager, and scheduler pods. Audit Logging in AKS is used to keep a chronological record of calls that have been made to the Kubernetes API server, also known as the control plane. It can be used to investigate suspicious API requests, collect statistics, or create monitoring alerts for unwanted API calls. 
+
+Refer [Resource Logs](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-log-query#resource-logs) stored in [AzureDiagnostics table](https://docs.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics).
+
+With respect to the API server options, all the parameters are not documented. These logs can be found in the final args by checking the apiserver log, as kubernetes components typically logs all parameters on start. Those are available following https://docs.microsoft.com/en-us/azure/aks/monitor-aks#collect-resource-logs. See the sample queries below.
+
+![alt txt](/images/apiserver-logs.png)
+
+![alt txt](/images/apiserver-logs-result.png)
+
+> Regarding anonymous-auth=false: This is specifically configured for AKS clusters.  
+Regarding kubelet-client-certificate and kubelet-client-key: This is configured if Kubernetes RBAC is enabled. 
+
 ## References
 * https://docs.microsoft.com/en-us/azure/aks/monitor-aks#collect-resource-logs
 * https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs
 * https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings
 * https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-log-query#resource-logs
 * https://docs.microsoft.com/en-us/azure/aks/monitor-aks
+* https://medium.com/@weinong/azure-kubernetes-service-control-plane-logs-f8ffa449fd
+* https://azure.microsoft.com/en-ca/updates/aks-control-plane-audit-logs/
