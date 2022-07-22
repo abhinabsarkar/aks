@@ -26,7 +26,8 @@ With respect to the API server options, all the parameters are not documented. T
 ![alt txt](/images/apiserver-logs-result.png)
 
 > Regarding anonymous-auth=false: This is specifically configured for AKS clusters.  
-Regarding kubelet-client-certificate and kubelet-client-key: This is configured if Kubernetes RBAC is enabled. 
+Regarding kubelet-client-certificate and kubelet-client-key: This is configured if Kubernetes RBAC is enabled.  
+Since apiserver only logs command line args on start time, you will have to wait for the start of apiserver to be able to catch that. Alternatively, if it is a test env, probably try stop/start.
 
 ## References
 * https://docs.microsoft.com/en-us/azure/aks/monitor-aks#collect-resource-logs
