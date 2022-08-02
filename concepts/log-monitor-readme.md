@@ -12,8 +12,10 @@ Container insights is a feature in Azure Monitor that monitors the health and pe
 
 > Container insights complements and completes E2E monitoring of AKS including log collection which Prometheus as stand-alone tool doesn’t provide. Many customers use Prometheus integration and Azure Monitor together for E2E monitoring.
 
-## Monitoring Control Plane logs
+## Monitoring Control Plane logs & Audit logs
 AKS is a managed Kubernetes service such that it doesn't give access to the kube-apiserver, controller-manager, and scheduler pods. Audit Logging in AKS is used to keep a chronological record of calls that have been made to the Kubernetes API server, also known as the control plane. It can be used to investigate suspicious API requests, collect statistics, or create monitoring alerts for unwanted API calls. 
+
+Refer this link for Audit logging https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/aks-security-baseline#23-enable-audit-logging-for-azure-resources
 
 Refer [Resource Logs](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-log-query#resource-logs) stored in [AzureDiagnostics table](https://docs.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics).
 
@@ -24,7 +26,8 @@ With respect to the API server options, all the parameters are not documented. T
 ![alt txt](/images/apiserver-logs-result.png)
 
 > Regarding anonymous-auth=false: This is specifically configured for AKS clusters.  
-Regarding kubelet-client-certificate and kubelet-client-key: This is configured if Kubernetes RBAC is enabled. 
+Regarding kubelet-client-certificate and kubelet-client-key: This is configured if Kubernetes RBAC is enabled.  
+Since apiserver only logs command line args on start time, you will have to wait for the start of apiserver to be able to catch that. Alternatively, if it is a test env, probably try stop/start.
 
 ## References
 * https://docs.microsoft.com/en-us/azure/aks/monitor-aks#collect-resource-logs
