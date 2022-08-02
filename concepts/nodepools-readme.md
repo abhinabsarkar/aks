@@ -10,7 +10,7 @@
 * Demo using Taints, Tolerations
 * Demo using Node Selector 
 * Talks about Node affinity & Pod affinity
-    * [Kubernetes scheduler explained with a story](https://www.azuremonk.com/blog/kube-scheduler)
+    * [Kubernetes scheduler explained with a story - blog](https://www.azuremonk.com/blog/kube-scheduler)
 
 ## Summary
 * Node pools should not be used for application isolation. The purpose (and supporting features) of node pools are to offer different node configurations to the cluster in a scalable fashion (using VMSS in the case of AKS).
