@@ -30,4 +30,5 @@ Azure Kubernetes Service (AKS) manages hosted Kubernetes environment. As a hoste
 * [AKS cluster hardening using policies](/concepts/aks-policies-readme.md)
 * [Logging & Monitoring](/concepts/log-monitor-readme.md)
 * [Connect to AKS nodes](/concepts/node-access-readme.md)
+* [Running stateful Spring Boot App on AKS](https://github.com/abhinabsarkar/spring-boot-demo/blob/main/concepts/sb-stateful-aks-readme.md)
 * [FAQs](/concepts/faq.md)
