@@ -1,12 +1,13 @@
 # Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster
 
-* [Manage Kubernetes Secrets with Azure Key Vault](https://nileshgule.medium.com/how-to-manage-kubernetes-secrets-with-azure-key-vault-211cb989b86b)
-* [Why mounting secrets as volume is secure in k8s?](https://stackoverflow.com/questions/55620043/is-there-any-security-advantage-to-mounting-secrets-as-a-file-instead-of-passing)
+Azure Key Vault secrets provider extension allows you to get secret contents stored in an Azure Key Vault instance and uses the [Secrets Store CSI driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) interface to mount them into Kubernetes pods of Azure Kubernetes clusters, thereby reducing the exposure of secrets to the minimum. 
 
-* [Kubernetes Secrets Store CSI Driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) - allows Kubernetes to mount multiple secrets, keys, and certs stored in enterprise-grade external secrets stores into their pods as a volume. Once the Volume is attached, the data in it is mounted into the container's file system.
-* [Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver)
-    * [Creating Kubernetes Secrets from Azure Key Vault with the CSI Driver](https://samcogan.com/creating-kubernetes-secrets-from-azure-key-vault-with-the-csi-driver/) - The Azure Key Vault CSI Driver is an extension for AKS that allows you to take secrets from Azure Key Vault and mount them as volumes in your pods. Your applications can then read the secret data from a volume mount inside the pod. *<ins>This is great, but again it means you need to change your application to read from that volume.</ins>*
-* [Azure Key Vault secrets provider extension for Arc enabled Kubernetes clusters](https://techcommunity.microsoft.com/t5/azure-arc-blog/in-preview-azure-key-vault-secrets-provider-extension-for-arc/ba-p/3002160) 
+## How does this work?
+Once the extension is installed, it deploys Secrets Store CSI driver and AKV secrets provider as daemon sets. The application teams then create their custom resource `SecretProviderClass`, referencing the AKV instance and its contents. Further, the application teams reference this SecretProviderClass object in application pod manifests. 
+
+On application pod start and restart, the Secrets Store CSI driver communicates with the Azure Key Vault secrets provider using `gRPC` to retrieve the secret content from the Azure Key Vault specified in the `SecretProviderClass` custom resource. Then the volume is mounted in the pod as `tmpfs` and the secret contents are written to the volume. On pod delete, the corresponding volume is cleaned up and deleted.
+
+![alt txt](/images/CSI-driver-Interface.png)
 
 ## Steps to configure AKV provider for Secrets Store CSI Driver in an AKS cluster
 ### Create resources in Azure
@@ -126,3 +127,12 @@ kubectl exec -it busybox-secrets-store-inline-user-msi /bin/sh
 # cat the file
 cat /mnt/secrets-store/redis-secret
 ```            
+
+## Additional resources
+* [Manage Kubernetes Secrets with Azure Key Vault](https://nileshgule.medium.com/how-to-manage-kubernetes-secrets-with-azure-key-vault-211cb989b86b)
+* [Why mounting secrets as volume is secure in k8s?](https://stackoverflow.com/questions/55620043/is-there-any-security-advantage-to-mounting-secrets-as-a-file-instead-of-passing)
+
+* [Kubernetes Secrets Store CSI Driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) - allows Kubernetes to mount multiple secrets, keys, and certs stored in enterprise-grade external secrets stores into their pods as a volume. Once the Volume is attached, the data in it is mounted into the container's file system.
+* [Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver)
+    * [Creating Kubernetes Secrets from Azure Key Vault with the CSI Driver](https://samcogan.com/creating-kubernetes-secrets-from-azure-key-vault-with-the-csi-driver/) - The Azure Key Vault CSI Driver is an extension for AKS that allows you to take secrets from Azure Key Vault and mount them as volumes in your pods. Your applications can then read the secret data from a volume mount inside the pod. *<ins>This is great, but again it means you need to change your application to read from that volume.</ins>*
+* [Azure Key Vault secrets provider extension for Arc enabled Kubernetes clusters](https://techcommunity.microsoft.com/t5/azure-arc-blog/in-preview-azure-key-vault-secrets-provider-extension-for-arc/ba-p/3002160) 
