@@ -22,7 +22,7 @@ kubectl get pods -n kube-system -l 'app in (secrets-store-csi-driver, secrets-st
 # Create an Azure key vault
 az keyvault create -n kv-aks-demo1 -g rg-aks-demo1 -l canadacentral
 # Store the secret
-az keyvault secret set --vault-name kv-aks-demo1 -n RedisSecret --value tC2EcVJf9sdsfVQbZpK8Rzu7UC4bUNtBOAzCaFjRSMs=
+az keyvault secret set --vault-name kv-aks-demo1 -n redis-secret --value tC2EcVJf9sdsfVQbZpK8Rzu7UC4bUNtBOAzCaFjRSMs=
 ```
 
 ### Provide an identity to access the Azure key vault
@@ -51,7 +51,7 @@ spec:
     objects:  |
       array:
         - |
-          objectName: <>
+          objectName: redis-secret        # Object name in this example is redis-secret
           objectType: secret              # object types: secret, key, or cert
           objectVersion: ""               # [OPTIONAL] object versions, default to latest if empty
     tenantId: <tenant ID>                 # The tenant ID of the key vault
@@ -128,7 +128,7 @@ kubectl exec -it busybox-secrets-store-inline-user-msi /bin/sh
 cat /mnt/secrets-store/redis-secret
 ```            
 
-## Additional resources
+## Additional references
 * [Manage Kubernetes Secrets with Azure Key Vault](https://nileshgule.medium.com/how-to-manage-kubernetes-secrets-with-azure-key-vault-211cb989b86b)
 * [Why mounting secrets as volume is secure in k8s?](https://stackoverflow.com/questions/55620043/is-there-any-security-advantage-to-mounting-secrets-as-a-file-instead-of-passing)
 
