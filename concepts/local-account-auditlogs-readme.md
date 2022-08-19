@@ -11,7 +11,7 @@ The way Kubernetes client certificate authentication works, the `CN` field is co
 
 ## <ins>*Issues:*</ins>
 1. It logs with a username as `masterclient` for all the users logging as admin, hence it is not auditable.
-2. The local cluster admin account is added by default, giving a backdoor option.
+2. `System:masters` is a group which is hardcoded into the Kubernetes API server source code as having unrestricted rights to the Kubernetes API server. The local cluster admin account is added by default, giving a backdoor option.
 
 This can be seen by running the below query in Log Analytics workspace for an AKS cluster created using `az aks update -g <rg-name> -n <cluster-name> --enable-local` which has Audit Logs enabled within the Diagnostic settings.
 
@@ -72,3 +72,4 @@ When integrating Azure AD with your AKS cluster, you can also use [Conditional A
 * [Azure AKS Audit logs view](https://stackoverflow.com/questions/60589131/azure-aks-audit-logs-view)
 * [Identity, Authentication and Authorization for Azure Kubernetes Service — Detailed](https://medium.com/microsoftazure/azure-kubernetes-service-aks-authentication-and-authorization-between-azure-rbac-and-k8s-rbac-eab57ab8345d)
 * [Privilege Escalation in AKS Clusters](https://www.securesystems.de/blog/privilege-escalation-in-aks-clusters/)
+* [system:masters in Kubernetes](https://blog.aquasec.com/kubernetes-authorization)
