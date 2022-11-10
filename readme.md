@@ -24,6 +24,8 @@ Azure Kubernetes Service (AKS) manages hosted Kubernetes environment. As a hoste
             * [Application Gateway Ingress Controller in action](/concepts/aks-agic-readme.md)
             * [Secure AKS service over HTTPS - Application Gateway to AKS service](https://docs.microsoft.com/en-us/azure/application-gateway/ingress-controller-expose-service-over-http-https#expose-services-over-https)
             * [TLS termination and end to end TLS with Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/ssl-overview)
+* [AKS cluster egress traffic](/concepts/egress-outboundtype-aks.md)
+    * Explains egress traffic configurations, outbound connectivity methods & outbound rules.
 * [AKS Node Pools](/concepts/nodepools-readme.md)
 * [AKS Private cluster](/concepts/aks-private-readme.md)
 * [AKS Best Practices from Microsoft](/concepts/AKS-Best_practices.pdf)
