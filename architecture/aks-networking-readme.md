@@ -8,6 +8,8 @@ In AKS, a cluster can be deployed using one of the two network models:
 With kubenet, only the *nodes* receive an IP address in the virtual network *subnet*. Pods can't communicate directly with each other. Instead, User Defined Routing (UDR) and IP forwarding is used for connectivity between pods across nod.  
 ![Alt text](/images/kubenet.jpg)
 
+![alt txt](/images/aks-kubenet.png)
+
 The ingress traffic flows using a cloud provider’s load balancer. NodePort and ClusterIP Services, to which the external load balancer routes, are automatically created. It proxies the request to the corresponding Pods via NodePort and ClusterIP Services.  
 ![Alt text](/images/kubenet-traffic.jpg)
 
@@ -15,6 +17,8 @@ The ingress traffic flows using a cloud provider’s load balancer. NodePort and
 With Azure CNI, every *pod* gets an IP address from the virtual network *subnet* and can be accessed directly. A pool of IP addresses for the Pods is configured as secondary addresses on a virtual machine's network interface. Azure CNI sets up the basic Network connectivity for Pods and manages the utilization of the IP addresses in the pool. When a Pod comes up in the virtual machine, Azure CNI assigns an available IP address from the pool and connects the Pod to a software bridge in the virtual machine. When the Pod terminates, the IP address is added back to the pool.
 
 ![Alt text](/images/azure-cni.jpg)
+
+![alt txt](/images/aks-azure-cni.png)
 
 The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure Virtual Machine. The plug-in assigns IP addresses from a virtual network to containers brought up in the virtual machine, attaching them to the virtual network, and connecting them directly to other containers and virtual network resources. The plug-in doesn’t rely on overlay networks, or routes, for connectivity, and provides the same performance as virtual machines.
 
@@ -26,3 +30,4 @@ https://docs.microsoft.com/en-us/azure/aks/configure-kubenet
 https://docs.microsoft.com/en-us/azure/aks/configure-azure-cni  
 https://docs.microsoft.com/en-us/azure/virtual-network/container-networking-overview  
 https://docs.microsoft.com/en-us/azure/aks/concepts-network  
+https://mehighlow.medium.com/aks-kubenet-vs-azure-cni-363298dd53bf  
